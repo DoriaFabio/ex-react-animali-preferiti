@@ -12,26 +12,40 @@
     <link rel="stylesheet" href="style.css">
     <script type="text/babel">
         const { useState } = React;
-        const ReactApp = () => {
+        const ListaAnimali = () => {
+            const animalsChoices = ["Cane", "Gatto", "Pappagallo", "Cavallo", "Panda", "Mucca", "Pecora", "Maiale", "Rana", "Tartaruga"];
+            const [animals, setAnimals] = useState([]);
+            const addAnimal = () => {
+                const randomIndex = Math.floor(Math.random()*animalsChoices.length);
+                const randomAnimal = animalsChoices[randomIndex];
+                setAnimals(curr => [...curr, randomAnimal]);
+            }
+            const AnimalZero = () => {
+                setAnimals(curr => []);
+            }
             return (
-                <details>
-                    <summary>
-                        <strong>Animali</strong>
-                    </summary>
-                    <div>
-                        <ul>
-                            <li>Animale1</li>
-                            <li>Animale2</li>
-                            <li>Animale3</li>
-                        </ul>
-                    </div>
-                </details>
+                <>
+                    <button onClick={addAnimal}>Aggiungi Animale</button>
+                    <button onClick={AnimalZero}>Reset</button>
+                    <details>
+                        <summary>
+                            <strong>Animali</strong>
+                        </summary>
+                        <div>
+                            <ul>
+                                {animals.map((a, i) => (
+                                    <li key={i}>{a}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    </details>
+                </>
             )
         }
-        const {createRoot} = ReactDOM;
+        const { createRoot } = ReactDOM;
         const listaAnimali = document.querySelector(".lista-animali");
         const root = createRoot(listaAnimali);
-        root.render(<ReactApp/>);
+        root.render(<ListaAnimali />);
     </script>
 </head>
 
