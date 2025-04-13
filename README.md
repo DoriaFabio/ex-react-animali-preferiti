@@ -13,8 +13,7 @@ Usa un array predefinito per scegliere casualmente.
 L’animale selezionato deve essere aggiunto all’interno della lista ul come li.
 Obiettivo: L’utente può vedere gli animali aggiunti dinamicamente nella lista.
 # 📌 Milestone 3: Usare una Modale per Aggiungere Animali
-Partendo da un componente Modal,
-espandilo affinché:
+Partendo da un componente Modal, espandilo affinché:
 La vecchia prop content può essere usata per passare un componente qualsiasi.
 Un nuovo div in fondo alla modale contiene il bottone Annulla e un nuovo bottone Conferma.
 Una nuova prop onConfirm si aspetta una funzione per gestire l’azione di conferma.
